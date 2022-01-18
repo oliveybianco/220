@@ -8,7 +8,6 @@ Certification of Authenticity:
 <I certify that this assignment is entirely my own work.>
 """
 
-
 def monthly_charge():
     annual_interest = eval(input("What is the annual interest rate?"))
     annual_rate = annual_interest / 100
