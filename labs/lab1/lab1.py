@@ -23,6 +23,4 @@ def monthly_charge():
     monthly_rate = annual_rate / 12
     monthly_charge = avg_daily_bal * monthly_rate
     return monthly_charge
-
-
 print("The monthly interest charge is:", monthly_charge)
