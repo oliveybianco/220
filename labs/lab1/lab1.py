@@ -21,6 +21,7 @@ def monthly_charge():
     step_three = step_one - step_two
     avg_daily_bal = step_three / num_days
     monthly_rate = annual_rate / 12
-    monthly_charge = avg_daily_bal * monthly_rate
-    return monthly_charge
-print("The monthly interest charge is:", monthly_charge)
+    payment = avg_daily_bal * monthly_rate
+    print("The monthly interest charge is:", payment)
+
+monthly_charge()
