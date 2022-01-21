@@ -13,7 +13,8 @@ import math
 
 
 def sum_of_threes():
-    pass
+    upper = eval(input("What is the upper bound? "))
+
 
 
 def multiplication_table():
@@ -21,15 +22,29 @@ def multiplication_table():
 
 
 def triangle_area():
-    pass
-
+    side_a = eval(input("Enter the length of side a: "))
+    side_b = eval(input("Enter the length of side b: "))
+    side_c = eval(input("Enter the length of side c: "))
+    add = side_a + side_b + side_c
+    s = add / 2
+    step_one = (s-side_a) * (s-side_b) *(s-side_c)
+    step_two = s * step_one
+    area = math.sqrt(step_two)
+    print("Area is: ", area)
 
 def sum_squares():
-    pass
+    lower = eval(input("Enter lower range: "))
+    upper = eval(input("Enter upper range: "))
+    nums = list(range(lower, upper))
+    for i in range(len(nums)):
+        add = sum(i ** 2)
+
+
 
 
 def power():
-    pass
+    base = eval(input("Enter the base: "))
+    power = eval(input("Enter the power: "))
 
 
 if __name__ == '__main__':
