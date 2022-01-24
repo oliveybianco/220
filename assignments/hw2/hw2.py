@@ -1,24 +1,30 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: <Olivia Bianco>
+<hw2>.py
 
-Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
+Problem: <For loop programs for arithmetic functions.>
 
 Certification of Authenticity:
-<include one of the following>
-I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
+<I certify that this work is entirely my own.>
 """
 import math
 
 
 def sum_of_threes():
     upper = eval(input("What is the upper bound? "))
-
+    result = 0
+    for i in range(1, upper + 1):
+        if i % 3 == 0:
+            result = result + i
+    print("sum of threes is: ", result)
 
 
 def multiplication_table():
-    pass
+    for rows in range(1, 11):
+        for columns in range(1, 11):
+            multiply = rows * columns
+            print(multiply, end="\t")
+        print()
 
 
 def triangle_area():
@@ -26,25 +32,30 @@ def triangle_area():
     side_b = eval(input("Enter the length of side b: "))
     side_c = eval(input("Enter the length of side c: "))
     add = side_a + side_b + side_c
-    s = add / 2
-    step_one = (s-side_a) * (s-side_b) *(s-side_c)
-    step_two = s * step_one
+    semi = add / 2
+    step_one = (semi - side_a) * (semi - side_b) * (semi - side_c)
+    step_two = semi * step_one
     area = math.sqrt(step_two)
     print("Area is: ", area)
+
 
 def sum_squares():
     lower = eval(input("Enter lower range: "))
     upper = eval(input("Enter upper range: "))
-    nums = list(range(lower, upper))
-    for i in range(len(nums)):
-        add = sum(i ** 2)
-
-
+    total = 0
+    for i in range(lower, upper + 1):
+        exp = i ** 2
+        total = total + exp
+    print(total)
 
 
 def power():
     base = eval(input("Enter the base: "))
-    power = eval(input("Enter the power: "))
+    exponent = eval(input("Enter the exponent: "))
+    result = 1
+    for _ in range(1, exponent + 1):
+        result = base * result
+    print(base, "^", exponent, "=", result)
 
 
 if __name__ == '__main__':
