@@ -12,6 +12,7 @@ Certification of Authenticity:
 def average():
     avg_amt = eval(input("How many grades will you enter? "))
     accumulator = 0
+    grade_avg = 0
     for _ in range(avg_amt):
         accumulator += eval(input("Enter grade: "))
         grade_avg = accumulator / avg_amt
@@ -41,13 +42,13 @@ def sequence():
 
 
 def pi():
-    nums = eval(input("Enter the number of terms in the series: "))
-    answer = 0
-    for i in range(0, nums):
-        numerator = i // 2 * 2
-        denominator = 1 + (i // 2 * 2)
-
-    print("pi is: ", answer)
+    terms = eval(input("Enter the number of terms in the series: "))
+    product = 2
+    for i in range(terms):
+        numerator = 2 + (i // 2 * 2)
+        denominator = 1 + ((i + 1) // 2 * 2)
+        product = product * (numerator / denominator)
+    print("pi is approximately: ", product)
 
 
 if __name__ == '__main__':
