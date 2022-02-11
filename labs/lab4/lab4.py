@@ -48,9 +48,9 @@ def greeting_card():
     for i in range(5):
         a_line.move(100, -100)
         time.sleep(.50)
-        inst_pt = Text(Point(200, 375), "Click again to close")
-        inst_pt.setTextColor("white")
-        inst_pt.draw(win)
+    inst_pt = Text(Point(200, 375), "Click again to close")
+    inst_pt.setTextColor("white")
+    inst_pt.draw(win)
     win.getMouse()
     win.close()
 

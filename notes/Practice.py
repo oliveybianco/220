@@ -1,8 +1,12 @@
-def convert():
-    #get user input
-    celsius = eval(input("What is the temperature in celsius?" ))
-    #convert input from celsius to farenheit with the equation c * (9 / 5) + 32
-    farenheit = celsius * 9/5 + 32
-    #display result to user
-    print("the temperature is", farenheit, "degrees farenheit.")
+from graphics import GraphWin, Rectangle, Point, Text, Line
 
+
+
+def greeting_card():
+    width = 400
+    height = 400
+    win = GraphWin("Valentine's Day", width, height)
+    win.setBackground("white")
+    aline = Line(Point(1, 3), Point(4, 7))
+    aline.draw(win)
+    input("hit enter to close")
