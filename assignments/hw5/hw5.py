@@ -54,7 +54,6 @@ def thirds():
         letters = new_list[j][0::3]
         print(letters)
 
-
 def word_average():
     sentence = input("Enter a sentence: ")
     words = sentence.split()
