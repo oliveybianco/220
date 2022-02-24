@@ -48,7 +48,21 @@ def sum_n_cubes(number):
 
 
 def encode_better():
-    pass
+    message = input("Enter a message: ")
+    key = input("Enter a key: ")
+    cipher = ""
+
+    for i in range(len(message)):
+        character = ord(message[i]) - 65
+        shift = ord(key[i % len(key)]) - 65
+        add = character + shift
+        check = add % 58
+        convert = check + 65
+        revert = chr(convert)
+        cipher += revert
+    print(cipher)
+
+
 
 
 if __name__ == '__main__':
