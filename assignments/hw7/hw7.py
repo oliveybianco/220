@@ -1,13 +1,11 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: <Olivia Bianco>
+<Hw7>.py
 
-Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
+Problem: <Reading and writing to text files and working with functions.>
 
 Certification of Authenticity:
-<include one of the following>
-I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
+<I certify that this assignment is entirely my own work.>
 """
 
 
@@ -20,7 +18,20 @@ def hourly_wages(in_file_name, out_file_name):
 
 
 def calc_check_sum(isbn):
-    pass
+    new_isbn = isbn.replace("-", "").replace(" ", "")
+    result = 0
+    for i in range(len(new_isbn)):
+        result = result + int(new_isbn[i]) + (10 - i)
+        if result % 11 == 0:
+            print(result)
+        else:
+            print("please enter the correct digits")
+    return result
+
+
+my_isbn = "0-072-94652-0"
+calc_check_sum(my_isbn)
+print(my_isbn)
 
 
 def send_message(file_name, friend_name):
