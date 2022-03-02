@@ -80,31 +80,21 @@ def bumper():
     while not win.checkMouse():
         circ_1.move(circ1_movex, circ1_movey)
         circ_2.move(circ2_movex, circ2_movey)
-
         if did_collide(circ_1, circ_2):
             circ1_movex = -circ1_movex
             circ1_movey = -circ1_movey
             circ2_movex = -circ2_movex
             circ2_movey = -circ2_movey
-
         if hit_vertical(circ_1, win):
-            circ1_movex = -circ1_movex
             circ1_movey = -circ1_movey
-
         if hit_vertical(circ_2, win):
-            circ2_movex = -circ2_movex
             circ2_movey = -circ2_movey
-
         if hit_horizontal(circ_1, win):
             circ1_movex = -circ1_movex
-            circ1_movey = -circ1_movey
-
         if hit_horizontal(circ_2, win):
             circ2_movex = -circ2_movex
-            circ2_movey = -circ2_movey
 
-        time.sleep(.30)
-
+        time.sleep(.10)
     win.close()
 
 
