@@ -17,8 +17,8 @@ def cash_converter():
 
 
 def encode():
-    message = input("Enter a message: ")
-    key = eval(input("Enter a key: "))
+    message = input("enter a message: ")
+    key = eval(input("enter a key: "))
     cipher = ""
     for word in range(len(message)):
         character = message[word]

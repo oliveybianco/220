@@ -73,7 +73,7 @@ def bumper():
     circ_2.draw(win)
 
     circ1_movex = get_random(30)
-    circ1_movey = get_random(30)
+    circ1_movey = 2get_random(30)
     circ2_movex = get_random(30)
     circ2_movey = get_random(30)
 
