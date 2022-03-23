@@ -98,25 +98,34 @@ def get_winner(board):
 
 def play(board):
     print("Let's play Tic-Tac-Toe!")
-    print("Choose X or O to start. Each player will take turns selecting squares until one player has three in a row."
-          "The player with three in a row wins. If you wish to play again after the game is complete, type yes. If "
-          "not, "
-          "enter no.")
+    print("Enter a number betwwen 1 and 9 to choose a square on the board.")
+    print("The player with three in a row wins")
+    print("Type yes if you want to continue and no if you do not.")
     print_board(board)
-    acc = 0
-    ans = "y"
-    while not game_over(board):
-        players = ["x", "o"]
-        turn = eval(input("X will go first. Choose a position on the board>> "))
-        position = turn
-        shape = str(players)
-        if is_legal(board, position):
-            fill_spot(board, position, shape)
-
-    while ans == "y":
-        ans = input("Do you want to play again? ")
-        if ans != "yes":
-            return None
+    start = input("Do you want to play? ")
+    while start == "yes":
+        i = 0
+        while i <= 9 and not game_over(board):
+            shape = ""
+            if (i % 2) == 0:
+                shape += "x"
+            elif (i % 2) == 1:
+                shape += "o"
+            new_input = input("{}'s choose a position:".format(shape))
+            while not is_legal(board, new_input):
+                start = input("That position is filled. Please choose a new position.")
+            fill_spot(board, start, shape)
+            print_board(board)
+            i += 1
+            if game_over(board):
+                if get_winner(board) == "x":
+                    print("x wins!")
+                elif get_winner(board) == "o":
+                    print("o wins!")
+                else:
+                    print("Tie.")
+    user = input("Do you want to play again? ")
+    board = build_board()
 
 
 def main():
