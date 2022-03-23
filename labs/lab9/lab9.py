@@ -1,15 +1,16 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: <Olivia Bianco>
+<Lab9>.py
 """
 
 
 def build_board():
-    pass
+    board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    return board
 
 
 def print_board(board):
-    """ prints the values of baord """
+    """ prints the values of board """
     RED = "\033[1;31m"
     BLUE = "\033[1;36m"
     LIGHT_GRAY = "\033[0;37m"
@@ -37,31 +38,89 @@ def print_board(board):
 
 
 def is_legal(board, position):
-    pass
+    if str(board[position - 1]).isnumeric():
+        return True
+    else:
+        return False
 
 
-def fill_spot(board, position, character):
-    pass
+def fill_spot(board, position, shape):  # fills the spot with an x or o
+    new_shape = shape.lower().strip()
+    board[position-1] = new_shape
 
 
-def winning_game(board):
-    pass
+def winning_game(board):  # each possibility
+    possibilities = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 6], [3, 6, 9], [1, 5, 9], [7, 5, 3]]
+    for possibility in possibilities:
+        acc = 0
+        for position in possibility:
+            if board[position - 1] == "x":
+                acc += 1
+            if acc == 3:
+                return True
+    for possibility in possibilities:
+        acc = 0
+        for position in possibility:
+            if board[position - 1] == "o":
+                acc += 1
+            if acc == 3:
+                return True
+    return False
 
 
 def game_over(board):
-    pass
+    if winning_game(board):
+        return True
+    for i in range(len(board)):
+        if str(i).isnumeric():
+            return False
+    return True
 
 
 def get_winner(board):
-    pass
+    possibilities = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 6], [3, 6, 9], [1, 5, 9], [7, 5, 3]]
+    for possibility in possibilities:
+        acc = 0
+        for position in possibility:
+            if board[position - 1] == "x":
+                acc += 1
+            if acc == 3:
+                return "x"
+    for possibility in possibilities:
+        acc = 0
+        for position in possibility:
+            if board[position - 1] == "o":
+                acc += 1
+            if acc == 3:
+                return "o"
+    return None
 
 
 def play(board):
-    pass
+    print("Let's play Tic-Tac-Toe!")
+    print("Choose X or O to start. Each player will take turns selecting squares until one player has three in a row."
+          "The player with three in a row wins. If you wish to play again after the game is complete, type yes. If "
+          "not, "
+          "enter no.")
+    print_board(board)
+    acc = 0
+    ans = "y"
+    while not game_over(board):
+        players = ["x", "o"]
+        turn = eval(input("X will go first. Choose a position on the board>> "))
+        position = turn
+        shape = str(players)
+        if is_legal(board, position):
+            fill_spot(board, position, shape)
+
+    while ans == "y":
+        ans = input("Do you want to play again? ")
+        if ans != "yes":
+            return None
 
 
 def main():
-    pass
+    play(build_board())
 
 
 if __name__ == '__main__':
