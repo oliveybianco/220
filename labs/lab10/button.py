@@ -20,9 +20,7 @@ class Button:
         return self.text.getText()
 
     def set_label(self, label):
-        center_point = self.shape.getCenter()
-        cen_x, cen_y = center_point.getX(), center_point.getY()
-        self.text = Text(Point(cen_x, cen_y), label)
+        self.text.setText(label)
 
     def draw(self, win):
         self.shape.draw(win)

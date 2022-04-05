@@ -22,8 +22,7 @@ class Door:
         return self.text.getText()
 
     def set_label(self, label):
-        center = self.shape.getCenter()
-        self.text = Text(center, label)
+        self.text.setText(label)
 
     def draw(self, win):
         self.shape.draw(win)
