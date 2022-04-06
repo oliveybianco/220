@@ -145,4 +145,4 @@ def play_command_line(secret_word):
 
 
 if __name__ == '__main__':
-    play_command_line("time")
+    pass

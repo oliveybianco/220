@@ -74,18 +74,21 @@ def main():
             wins_num.undraw()
             new_wins_pt = Text(Point(w_x, w_y), wins_acc)
             new_wins_pt.draw(win)
+            win_msg.draw(win)
         elif door_2.is_clicked(pt) and door_2.is_secret():
             door_2.color_door("green")
             wins_acc += 1
             wins_num.undraw()
             new_wins_pt = Text(Point(w_x, w_y), wins_acc)
             new_wins_pt.draw(win)
+            win_msg.draw(win)
         elif door_3.is_clicked(pt) and door_3.is_secret():
             door_3.color_door("green")
             wins_acc += 1
             wins_num.undraw()
             new_wins_pt = Text(Point(w_x, w_y), wins_acc)
             new_wins_pt.draw(win)
+            win_msg.draw(win)
         else:
             loss_msg.draw(win)
             if not door_1.is_secret() and door_1.is_clicked(pt):
