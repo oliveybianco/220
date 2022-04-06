@@ -89,18 +89,30 @@ def main():
         else:
             loss_msg.draw(win)
             if not door_1.is_secret() and door_1.is_clicked(pt):
+                if door_2.is_secret():
+                    door_2.color_door("green")
+                if door_3.is_secret():
+                    door_3.color_door("green")
                 door_1.color_door("red")
                 losses_acc += 1
                 loss_num.undraw()
                 loss_text_pt = Text(Point(l_x, l_y), losses_acc)
                 loss_text_pt.draw(win)
             elif not door_2.is_secret() and door_2.is_clicked(pt):
+                if door_1.is_secret():
+                    door_1.color_door("green")
+                if door_3.is_secret():
+                    door_3.color_door("green")
                 door_2.color_door("red")
                 losses_acc += 1
                 loss_num.undraw()
                 loss_text_pt = Text(Point(l_x, l_y), losses_acc)
                 loss_text_pt.draw(win)
             elif not door_3.is_secret() and door_3.is_clicked(pt):
+                if door_1.is_secret():
+                    door_1.color_door("green")
+                if door_2.is_secret():
+                    door_2.color_door("green")
                 door_3.color_door("red")
                 losses_acc += 1
                 loss_num.undraw()
@@ -119,5 +131,6 @@ def main():
             instructions.draw(win)
             begin_text.draw(win)
             pt = win.getMouse()
+
 
 main()
