@@ -78,7 +78,7 @@ def build_sphere_tests():
              data=[f'radius: {sa_radius}']))
     # volume
     methods_section.add_items(
-        Test('volume', lambda: volume(), volume, comp_func=delta_comp_func(error),
+        Test('volume', lambda: v_sphere.volume(), volume, comp_func=delta_comp_func(error),
              data=[f'radius: {v_radius}']))
 
     section.add_items(constructor_section, instance_variables_section, methods_section)
