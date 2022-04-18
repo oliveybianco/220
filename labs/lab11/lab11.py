@@ -14,7 +14,7 @@ from random import randint
 from graphics import GraphWin, Text, Rectangle, Point
 
 
-def main():
+def three_door_game():
     win = GraphWin("Three Door Game", 700, 700)
     win.setBackground("white")
     door_1 = Door(Rectangle(Point(150, 200), Point(250, 600)), "Door 1")  # Drawing each door
@@ -44,15 +44,17 @@ def main():
     play_again = Text(Point(350, 650), "click anywhere to play again.")
     win_msg = Text(Point(325, 175), "you win!")
     loss_msg = Text(Point(325, 175), "you lost.")
-    wins_acc = 0  # initializing the accumulator
-    losses_acc = 0
+    wins_acc = []  # initializing the accumulator
+    losses_acc = []
     win_cen = score_wins.getCenter()
     w_x, w_y = win_cen.getX(), win_cen.getY()
-    wins_num = Text(Point(w_x, w_y), "0")
+    wins_num = Text(Point(w_x, w_y), "")
+    wins_num.setText(len(wins_acc))
     wins_num.draw(win)
     loss_cen = score_losses.getCenter()
     l_x, l_y = loss_cen.getX(), loss_cen.getY()
-    loss_num = Text(Point(l_x, l_y), "0")
+    loss_num = Text(Point(l_x, l_y), "")
+    loss_num.setText(len(losses_acc))
     loss_num.draw(win)
 
     secret_num = randint(1, 3)  # setting the secret door
@@ -70,24 +72,18 @@ def main():
         begin_text.undraw()
         if door_1.is_clicked(pt) and door_1.is_secret():
             door_1.color_door("green")
-            wins_acc += 1
-            wins_num.undraw()
-            new_wins_pt = Text(Point(w_x, w_y), wins_acc)
-            new_wins_pt.draw(win)
+            wins_acc.append("w")
+            wins_num.setText(len(wins_acc))
             win_msg.draw(win)
         elif door_2.is_clicked(pt) and door_2.is_secret():
             door_2.color_door("green")
-            wins_acc += 1
-            wins_num.undraw()
-            new_wins_pt = Text(Point(w_x, w_y), wins_acc)
-            new_wins_pt.draw(win)
+            wins_acc.append("w")
+            wins_num.setText(len(wins_acc))
             win_msg.draw(win)
         elif door_3.is_clicked(pt) and door_3.is_secret():
             door_3.color_door("green")
-            wins_acc += 1
-            wins_num.undraw()
-            new_wins_pt = Text(Point(w_x, w_y), wins_acc)
-            new_wins_pt.draw(win)
+            wins_acc.append("w")
+            wins_num.setText(len(wins_acc))
             win_msg.draw(win)
         else:
             loss_msg.draw(win)
@@ -97,30 +93,24 @@ def main():
                 if door_3.is_secret():
                     door_3.color_door("green")
                 door_1.color_door("red")
-                losses_acc += 1
-                loss_num.undraw()
-                loss_text_pt = Text(Point(l_x, l_y), losses_acc)
-                loss_text_pt.draw(win)
+                losses_acc.append("l")
+                loss_num.setText(len(losses_acc))
             elif not door_2.is_secret() and door_2.is_clicked(pt):
                 if door_1.is_secret():
                     door_1.color_door("green")
                 if door_3.is_secret():
                     door_3.color_door("green")
                 door_2.color_door("red")
-                losses_acc += 1
-                loss_num.undraw()
-                loss_text_pt = Text(Point(l_x, l_y), losses_acc)
-                loss_text_pt.draw(win)
+                losses_acc.append("l")
+                loss_num.setText(len(losses_acc))
             elif not door_3.is_secret() and door_3.is_clicked(pt):
                 if door_1.is_secret():
                     door_1.color_door("green")
                 if door_2.is_secret():
                     door_2.color_door("green")
                 door_3.color_door("red")
-                losses_acc += 1
-                loss_num.undraw()
-                loss_text_pt = Text(Point(l_x, l_y), losses_acc)
-                loss_text_pt.draw(win)
+                losses_acc.append("l")
+                loss_num.setText(len(losses_acc))
         pt = win.getMouse()
         if quit_button.is_clicked(pt):
             win.close()
@@ -135,5 +125,7 @@ def main():
             begin_text.draw(win)
             pt = win.getMouse()
 
+    win.close()
 
-main()
+
+three_door_game()
